@@ -7,7 +7,18 @@
 <p id="demo"></p>
 
 <script>
-window.location.replace("https://play.google.com/store/apps/details?id=com.scorpion.magicgear");
+	var ua = navigator.userAgent;
+  if (history.length <= 1) {
+		var isIOS = !!(~ua.indexOf('iPhone') || ~ua.indexOf('iPad') || ~ua.indexOf('Mac'));
+		if (isIOS) {
+			location.href = 'https://www.facebook.com/scorpionesgame/';
+		} else {
+			location.href = 'market://details?id=com.com.scorpion.magicgear';
+			setTimeout(function () {
+				location.href = 'https://play.google.com/store/apps/details?id=com.scorpion.magicgear';
+			}, 500);
+		}
+	}
 </script>
 
 </body>
