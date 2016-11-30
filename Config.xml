@@ -9,6 +9,6 @@
 <version_ios value="1.0" />
 <ios_store link="http://www.apple.com/vn/itunes/" />
 <!-- Thong bao server bao tri  -->
-<server_maintenance  value="false" />
+<server_maintenance  value="true" />
 <server_maintenance_msg  value="Servers are under maintenance. Please try again later" />
 </config>
