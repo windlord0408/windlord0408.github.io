@@ -4,7 +4,7 @@
 <card_topup isEnable="true" />
 <!-- Chinh version game android -->
 <android_store link="https://play.google.com/store" />
-<version_android value="1.0" />
+<version_android value="1.3.1" />
 <!-- Chinh version game ios -->
 <version_ios value="1.0" />
 <ios_store link="http://www.apple.com/vn/itunes/" />
