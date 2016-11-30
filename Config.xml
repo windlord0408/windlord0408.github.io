@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<!-- Bat tat tinh nang nap the cao -->
+<card_topup isEnable="true" />
+<!-- Chinh version game android -->
+<android_store link="https://play.google.com/store" />
+<version_android value="1.0" />
+<!-- Chinh version game ios -->
+<version_ios value="1.0" />
+<ios_store link="http://www.apple.com/vn/itunes/" />
+<!-- Thong bao server bao tri  -->
+<server_maintenance  value="false" />
+<server_maintenance_msg  value="Servers are under maintenance. Please try again later" />
+</config>
