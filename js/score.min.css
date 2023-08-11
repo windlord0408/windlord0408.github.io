@@ -1,0 +1,417 @@
+canvas {
+    display: block;
+    max-width: 100%
+}
+
+#gv_savescore.gv_reset {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2147483647;
+    background: rgba(0,0,0,.5)
+}
+
+.gv_reset,.gv_reset * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-decoration: none;
+    width: auto;
+    height: auto;
+    vertical-align: baseline;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    position: static;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+    border-collapse: collapse;
+    font: normal normal normal 12px Arial;
+    color: initial;
+    text-align: left;
+    float: none
+}
+
+.gv_dialog {
+    border: 1px solid #ccc;
+    display: block;
+    height: auto;
+    max-width: 360px;
+    background: #fff;
+    min-height: 100px;
+    border-radius: 10px;
+    margin: 5% auto auto auto
+}
+
+.gv_dialog .gv_body,.gv_dialog .gv_header {
+    margin: 10px;
+    position: relative
+}
+
+.gv_dialog .gv_header .gv_logo {
+    height: 38px;
+    width: 110px;
+    background: url(https://gamevui.vn/themes/default/images/logo.png) no-repeat center;
+    background-size: contain;
+    display: block
+}
+
+.gv_dialog .gv_header .gv_btn-close {
+    color: #f00;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 38px;
+    width: 80px;
+    text-align: center;
+    line-height: 38px;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.gv_dialog .gv_header .gv_btn-close:hover {
+    color: #ff4500
+}
+
+.gv_dialog .gv_body {
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid #65aff5;
+    border-radius: 10px;
+    min-height: 80px
+}
+
+.gv_dialog .gv_body .gv_message {
+    text-align: center
+}
+
+.gv_dialog .gv_body .gv_message .gv_score {
+    color: #f00;
+    font-size: 4em;
+    display: block;
+    text-align: center
+}
+
+.gv_dialog .gv_body .gv_loginbox label {
+    display: inline-block;
+    width: 98px
+}
+
+.gv_dialog .gv_body input {
+    line-height: 2em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0 10px
+}
+
+.gv_dialog .gv_body p {
+    margin: 10px 0
+}
+
+.gv_dialog .gv_footer {
+    text-align: center
+}
+
+.gv_dialog .gv_footer .gv_button.gv_btn-fb {
+    padding-left: 26px;
+    background: #3b5998 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAMAAAAlvKiEAAACoFBMVEX///+ep86GksKcrs+lr9G3vtqms9dmd6pTY5CHk8Ngb6N9jriCkbWfqM+Bl776+vyPmcegqs2Ypc+sudtbbKHo6/RIWZRsfqlicaTw8/nq7/fv8vnX4O6KmMTk5/OWp87y9fp6i7a9zuihsc/r7vS1v9WyxNyRpcm6zefi5u9IWYmqutaFlMC4xdamtdKfq8yLnMWfrcuSnsGbrc7e4+x3iLRofa2ks9auuNKksMq7zueDkr9sha9wgruptNKaosqVncfd4eyHkMB+kLiKlsaRnsWsttWLmcF5ibiLm792jrZ4iL2otdlKXIygqc+Pmca4y+SCkrmDkbWFkcClstaruduSoMVsfal3iL2jsdSrudqeqtCNmMayvuGToMa1utieps2yuNZ1hbugr9Tu8fKfrtS0wNyNncuLnMqjstayutijrdCSoMKltNlwgrKNoMePnsRpeKSRnsvj5/Hv8ffN1uXl6vPv8vfw8/fn7PXn6vT7/P66xNuTn8adqdL5+vzJ0uSbqMqLncby9vrAyd6LmsWsudeCl7yZpc/5+vyYpsyOpcyTp8ugq8yjrM7z9vqMmMLByd29xNuPm8Slrc/z9vuCl7xTZaRHWZ9CVZxPYKVCVJ5HWp+stNSWoclIWqFVZ6R+lbuUocSQpsxpea9YaKd9irubpM15hr1ygLa8wt2osdNfbatre6+Bl7yNpMtecKl6hrqpsdSTncl2hLuMl8a2vdqlrtFwfLWBmL5ldauAlryKoMiDj76mrdKiq9BzgbmOmMa5wNukrs9ndbCJlMSJlMV3hrd9lLqcps6krdKhqtCdps2cqMqFkcKIlMOKlcRzgbqgqM6fqM5ndaK3vtqcqtGQm8i4v9v///////////+mr9J1grqcq9L////lFvDVAAAA33RSTlMAAAAASlMAAAAAAAAAAAD4AGUVAADLAAAAyqvPjQDNANsAAADeeQAAAMIALwRwMjYAMQAAyAAAAElzAAAAAD8AAMQAAAAATQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFJJVAAA9wAuAAAAUkkAAAAAAwERxdmOw9zaw8vweAAW+HcAAN1ZADsAFvsaAAhibNtMlpJNbtwCAAAAAAAAUEgAAAAAAAAAAAAAAFNKAAAAAAAAAAAAAFNKAAAAAAAAAAAAAFNIAAAAAAAAAAAAXAAAAAAAAABUAABP9fL2RgAAm42RlgAAAWVJREFUeF690EOTY2EUx+HcpGnbtm3btm0b07Zt2zbGtn2/Sp/7diVVmZpNb/q3O0+d1Z90i5hRApLSWoWq4qK2UhJKgGxEIkIaYvhNdSqALERqngZIIBkfQA7IT1gRp9ZlBsgOGcoq0HBADlBen0JRVkd3gmaStpXuCaDOrF6GrwlCUyNjF3N7C0DLcGsbu1iETg6OzpWuboDuHvxe3g8RPnrsHxAYFAwYEhrGFBGNMOYDE39k1GfAuK/xiclpCNNTUv9m5uQC5uUXCBYVIywpLRMsr8gCrOLG6arOBuS7R4/1Nf/BxlrAZnpsaW0AbO/o5O3uQdDbx9v/ZrAJsG1oeGR0AuHk2PjU9AwX4Nz8wuLSKsK15ZX1jU0Ct7Z3dvcOER7tHxyfnhErnV9cXj1gRMhw/8nTZ8+JzxcvX73moeLbd+/JZMCPnzCMhmSIQAy7S/zyD3JC377jP37+wn//YSUiXQPrcBB545r7yQAAAABJRU5ErkJggg==') 3px center no-repeat
+}
+
+.gv_dialog .gv_footer .gv_button.gv_btn-fb:hover {
+    background-color: #4460a6
+}
+
+.gv_button {
+    display: inline-block;
+    width: 90px;
+    margin: 10px 5px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #fef4e9;
+    background: #ff6c00;
+    border-radius: .5em;
+    padding: 5px;
+    cursor: pointer;
+    line-height: 1.5em;
+    font-size: 1.6em;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.gv_button:hover {
+    box-shadow: 0 0 .5em white;
+    background: -webkit-gradient(linear,left top,left bottom,from(#f47a20),to(#faa51a));
+    background: -moz-linear-gradient(top,#f47a20,#faa51a);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20',endColorstr='#faa51a')
+}
+
+.gv_hide {
+    display: none!important
+}
+
+#gv_playmenu {
+    position: fixed;
+    left: 0;
+    top: 10px;
+    display: block;
+    width: auto;
+    height: auto;
+    background: rgba(238,238,238,.6);
+    border-radius: 3px;
+    overflow: hidden;
+    z-index: 1000;
+    box-shadow: 0 0 3px #000;
+    font-family: Arial;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+#gv_playmenu .gv_amenu {
+    display: block;
+    cursor: pointer;
+    color: #0008;
+    padding: 16px 8px 16px 20px;
+    background: url(https://gamevui.vn/favicon.ico) no-repeat 4px center
+}
+
+#gv_playmenu a.gv_item {
+    display: none;
+    white-space: nowrap;
+    padding: 15px 15px 15px 40px;
+    border-bottom: 1px solid #ddd;
+    color: #000
+}
+
+#gv_playmenu.gv_show {
+    top: 10px;
+    background: rgba(238,238,238,.8)
+}
+
+#gv_playmenu.gv_show .gv_amenu {
+    display: none
+}
+
+#gv_playmenu.gv_show a.gv_item {
+    display: block
+}
+
+#gv_playmenu a.gv_areload {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABbElEQVRIibXWTUoDQRAF4C9ZiEhW4kpEB9feQs8gIh7AlasQvIp4AH+uIOJa3Ipu/MegiK6CK426mB4yTjpOYpIHzQzd1a+q31RXTcXfWMQqlrGEmTD/ggsc4xA3JTxdSHCANr5LRjvYJv2Sb6AVIWriNIxmZL0V9maYxFyRvB4hbWA+Esh8WCs6q2NKKt9RMfK84Q5qfZy4Fmzzey/D8zYzSvyWpdEHcREN3bK9Z4sHhcj/gync604AizrZ0tSfLDHy48gJPmDbcNLAWiArOnirSL/0SjBcwMM/nUxI03I6vH/iGZ505Bk5qjrX/3FcDsaBTWlGbTEeibLbfV3FeZicFS8JgyIJXHBVleZvhrUROMhznDCai5ahpiN5W66Ej6JUwG6OZy+/kBi+2OUrQkukAQ1TrvORf2O9l/EgDScJUT8V9tTLIiprmWcR0kyWnpHHohuk6e/p0fQrJY5ivy1feJVe0BPs464XwQ/nKq/FREdBHgAAAABJRU5ErkJggg==') no-repeat 8px center
+}
+
+#gv_playmenu a.gv_aback {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABI0lEQVRIib2WQY7CMAxFH7NAPQGHmAXiDAg2PUTVU/QarFDPguAO7IYzFJbskKLOYhyphNiJCh1L2TT2+4mdOJ1h2xzYAFvgG1jI9yvwAxyBE/BIcF6sABqgA/rE6MS3yIUvgUsGOBwXiTVtDdxHwP24C0Nd+TvwocjLToqRabHS9VSTRnG8AXvAReYc0IpPLLbx8Dnx03IDVuJTByJOviE+MZFO2JTKCtogjV5kCPe2VxglwE6ZdEAVEQnhFfEU9sLmoExqIrnwXticDQdLJAXvgfOXsbqhxfxyY5Mpqo3YmowUWUUO4RXxwptFHnNMQ5FWYZQw/qJ5keRFA7tVtEoKHH8XLNkq4B+aHUzcrr1N+uAMdzLZk+ntY4/+LCH09m/LL3n6XcTHjbdqAAAAAElFTkSuQmCC') no-repeat 8px center
+}
+
+#gv_playmenu a.gv_aclose {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACLUlEQVRYhe2XzytEURTHP17TLGQhWchCFpINWUgSOwsLC3+AhawkCytJsrWysJQmSZKmIWWShYUkWWpSSlYapSyUpknSWNw77p3X/fGupmyceot593u+3+8799wz78F//HE0BOI7gUlgFOgGWuT9V+AeuAQOgec6+fuJfuAY+AIqnusTyAI99RBOAWuSVBcpAnkgA2wDp8BLDPMBLAPRb8UbJbH+ZBlgwIKPgCFgj9pK5YB0qHgKONNICkBfQP4g8KDlZwmsxJqWfA40eczOGARagBuNZzGpeD9qzwsJxA8kdtNi4lGul4GuJAaOUXvuKrsuXkHs+7ABN4LqiV2feKcGznjE92Pi0w58DnUyWl0GFjRSW7ebxGdcpMCYhncZ/XFarKN4Ne8df2UpSFDesBYhznioeDWuZN6lC1SUoG3D2q4mXgFmA8RBVfdOvxkyHAqx372BBhJp3SJcnlrWl6itwkaAgWuZc+ECVc/1C3bHy78wkQZKqIFljXmNeMiBCzUxrmGnXMB21Bje85CuxEysO7B51Dhu9vCSRR2zQQ92NWZixIDRh9CWTxzEm8yHTHhAvXb5TMwZ1tqAJ7leAjqSGIDaPb5JYMI0tttQg81m0BoRanBUEH+ppvLaYgz15N7xa4s0qh+qPZGT5CkLfhzVcLq4CZ8oIsSbTDlG+o6Y7TngCDFkSjFMicCyu6IL2EE1p+sqI7o9UcOFfpi0AhO4P0xOgLdA3v/4u/gGQ9HixAUllOQAAAAASUVORK5CYII=') no-repeat 5px center
+}
+
+#gv_adsLoadingAdvertising {
+    position: fixed;
+    width: 100%;
+    max-width: 100vw;
+    height: 100%;
+    max-height: 100vh;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 16777271;
+    background: linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite
+}
+
+#gv_adsLoadingAdvertising::before {
+    content: '';
+    background: url(https://gamevui.vn/themes/default/images/logo.png) no-repeat center;
+    background-size: auto 60px;
+    display: block;
+    width: 200px;
+    height: 60px;
+    position: fixed;
+    top: 10px;
+    left: calc(50% - 104px)
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+#gv_adsLoadingAdvertising #gv_adsContainer {
+    position: absolute;
+    width: 100%;
+    font-family: Arial,sans-serif;
+    left: 0;
+    top: 68px;
+    right: 0;
+    bottom: 0;
+    min-height: 240px;
+    min-width: 320px;
+    max-height: 480px;
+    max-width: 640px;
+    margin: auto;
+    z-index: 16777271;
+    text-align: center
+}
+
+#gv_adsLoadingAdvertising.adsloading #gv_adsContainer {
+    background: center 46% no-repeat url("data:image/gif;base64,R0lGODlhKwArALMAAP////7+/ubm5uXl5c3NzczMzJubm5qampmZmQAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFDwAAACwAAAAAKwArAAAE0RDISSs9GNvNO8+aJ44XSJ4ieKDsprYdQXhvPI+y3NVbftu+j6nn+xGLrmGlqPMwjRLe5EmiljJLJsoaVQK4Jy4PvNUCamQW9YBoI75m2DQuScuRFrw83zzuOwUiUB4ChYaHiCSIi4yNh4qOkZGQkpWJI5aZhpSNA54DKAIion8bmxynpROXFayljK2LqrCJsHu2l7Ytuqy6J76uvqOyFK4AwqjExY+xxhbIx8zN0qbOEtbR1NWFHdjZpMOE2hWeqqvj5smp6eLr7Orc74SfoDARACH5BAUPAAAALAUAAAAmABgAAAR4EMhJKbm36s03zl0oSh8xnlyJrtbHVoIQqt1xcHHc0Ztta7lcytXz/ShBoYZHMfqASVmFKXEeockpcWK9daJS0hbQHYEnvPLpDKCpUWdCYV4gW18ANveOzweLT30SSoCCFAMiXoYrJY1jfY6Ri22RjZOVlouYcnQRACH5BAUPAAAALBMAAAAYACYAAARzUEgJqr34Tpo73oInVuAolmaHegShbmLbZismyx+c3bimX7xZbmILvoiWoOvIAShPuudpQB04jakkNqvtcYHCr03sOZjP6LQozUav2+03XF2eHxB4BItcXPJ5f1tfUmKEg4JchomIWYqNjCmQkV58BQUdEQAh+QQFDwAAACwTAAUAGAAmAAAEfBDISasQNet57/5S14GaOJKU6aGcyrbmG7qyitX0a8vwys+3H0eYIRiPyOQnyUQum80nVLmZGgvYwuZAnBy+3a9YKC6jlIYyGERNq9lOidtcjcvVXA11Mh8X7Xx4f0cafWsTexWGFYmKfhSNFQgIeoAykSyYZ5YvBFlaQhEAIfkEBQ8AAAAsBQATACYAGAAABHkQyEmrlSLrza/3XLh9JCWeZXqKablmQzyQRFm3NHFf+o5XPR0v+AMGhZQjsqisHZ5PQJOplECj0mprar1OuLkj5XpIaj3gLtQoHrbHXjZR3ruQ3fPvu3LHL/V/fHF4aD4WfR4FBUWCa4w/iI8pkZIklJUeBwibCJIRACH5BAUPAAAALAAAEwAmABgAAAR5kMhJK7g4632rp1wYfqRoZuR3rqm3vu9xCrB53KKg19ztc7ogL+MraoLIIaD4syCFNSYOYAE8dzEppmq9rqSyLQhzpYnAGu6lHEKnxxm2xv2eAL1E5gh+fG6Me3YhST1hgRImAwNKYoKMLHyPImqShwSVJwQFmwUwEQAh+QQFDwAAACwAAAUAGAAmAAAEchDICQihOGdrtacc932hOGpld27pypYull7xNNd2i1c6Du8SE1BS8ByOyKTyo2wmmU4nNLo0UqtDWzaoAv58PddNQCaPboCy2YNOq9lhtQAVdpdfoYxcVpfsQV8Yf4Bdem8sI4M4ijWMMY4ukCsCA5UDEQAh+QQJDwAAACwAAAAAKwArAAAEjhDISSslGNvNO8+aJ44XSJ4iSKDsprbdcXgvbMlyV9sTjn8mXs+Xs+yEAGKxlEFSlDNmyCmBSlfUIXFyzFoBXa8SXCgXsrcx2rNdi37uEWKtqgfR9rw7b9/zw0h/gHEbAoQiAomHHImNixWNkY8SkY6TlYqXmJMAmIaalZyeopukkpyUlqipq62ur7CxIxEAOw==")
+}
+
+#gv_adsLoadingAdvertising.adsloading #gv_adsContainer:after {
+    content: 'Quảng cáo';
+    display: block;
+    color: rgba(255,255,255,.54);
+    text-align: center;
+    position: absolute;
+    bottom: 28px;
+    width: auto;
+    left: 50%;
+    margin-left: -30px;
+    font-size: 13px
+}
+
+#gv_adsLoadingAdvertising #gv_adsContainer #gv_adsStart {
+    position: absolute;
+    color: #fff;
+    display: block;
+    left: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100px;
+    margin-left: -50px;
+    text-align: center;
+    top: 50%;
+    height: 40px;
+    background: #ff4500;
+    line-height: 40px;
+    border-radius: 10px;
+    border: 1px solid #ffc107;
+    box-shadow: 0 0 20px 0 #fff;
+    animation: heartbeat .6s infinite
+}
+
+#gv_adsLoadingAdvertising #gv_adsclose {
+    color: rgba(255,255,255,.87);
+    font-size: 16px;
+    font-family: arial;
+    display: block;
+    border: 1px solid rgba(255,255,255,.5);
+    padding: 0 16px;
+    cursor: pointer;
+    line-height: 36px;
+    background: rgba(0,0,0,.8);
+    left: 0;
+    bottom: 32px;
+    position: fixed;
+    z-index: 16777272
+}
+
+#gv_adsLoadingAdvertising.adsima #gv_adsclose {
+    top: 0;
+    bottom: auto;
+    position: absolute
+}
+
+#gv_adsLoadingAdvertising #gv_adsclose:hover {
+    color: #fff;
+    border-color: #fff
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.05)
+    }
+}
+
+#gv_ads.gv_ads {
+    background-color: rgba(14,56,91,.96);
+    background-position: center 20%
+}
+
+div#gv_ads:after {
+    content: 'Chạm vào vị trí bất kỳ để bắt đầu';
+    position: fixed;
+    bottom: 16px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    color: #fff
+}
+
+#gv_ads.gv_ads .gv_button {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 3px solid #fff;
+    margin-left: -68px;
+    width: 120px
+}
+
+.gv_orientation-alert {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.9);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    content: ' ';
+    z-index: 50
+}
+
+.gv_rotate-landscape {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACSCAMAAAD1ozG5AAAA+VBMVEUAAAA/Pz////8/Pz////8/Pz////8/Pz////8/Pz////////8/Pz8/Pz/////////////////////////////////////////////////////////////////////////////////////S0tI/Pz////////////8/Pz////8/Pz////////////////////////////////////8/Pz8/Pz////////////////////////////8/Pz8/Pz////////8/Pz8/Pz////94eHh1dXU/Pz/5+fk/Pz8/Pz+urq7Z2dk/Pz8/Pz////8/Pz/k5ORubm51dXX1VNJjAAAATnRSTlMAwMAY7ERE7NTUPNk82Avc3/T69uXNEbmo8LVmJpaQWDAWBP766ce7uaCQjIR8dnFQQjgk8+KJamA+Kh1/cGhTSiYRCfHhzcapfWpWUUYXcYICAAADAElEQVR42u3Yd3PaMBjHcZVQShYGG4zZoyQhkLAyWNnpHqLl/b+YUnJIbg2cD6Pq17vn+2eSu3wOI+uRmNpud2uTjbusHzDF1ScBu2NK+zwJWu2RqexqErgGU9jTJHh1prCdLQBfMRkBCbgJsLa7eVf/AviGbd5rAuoEPufLpdNUPJzJcOsUD1jOOQn+kpW97qIBO06SLypGntEece/EEjxnVEX7Do6vuSj1gLdIIobgZQoxvFU8yAhfslvFe82cmcIXHQO+B8+46NgGfFG3XL4K4E5SMuXyrQBudcOE8O3bgHuxnRK+xAhxWLjhohbiNNOTD9iBHLfSwne0hwjMcVERcWCNuT5AGxHY4aJzxJHf9QFaFURgnouKkIempgRGEIHVpPAZeURgOSGATchzcdG1hiGBJxI4gAQeu7Y5ROCFIQdVGxF4L9dICPLyqM9FWUhgGx3YQge2JfAEEpiTwOMYDjC2iHVc9zF78ue6gU7YiM8z4iaXwn3jpWRKN7Bk8rWd6Qay1lpfCODyqLDGZ3a1L5JZ2dXAc/2reNZFfJUvCnK79bDCZ3UB3oPzBsuBpwgvanHp682o4ABjIe7tHmKrWyyUpPcBY+zFnjOnPBpjAVnpL2AfZJpZtaNkUcatFQvFGuEBWSwqgSWYgdVdOSxmfhsSKKb+ox7OyL/0/qgJeWia5/BZKYYLtH8vlB4wkA0tfsOQgSxn5LGBswhIQAIScDNgvpkOKenj21krf5u+HvsD5kyuqUTHD3DI9WVd+ACmucYKPoDiWBmPbLuv0+n0XUTU9gJTPoDyyoqJ1KziPS9wn4AEJCABCUhAAhKQgAQkIAEJSMAgwMsD0ZclwIN13aoH/tFPL/DHZG0EJCABCUhAAhKQgFqBT1sA1lUC2VVwYEMp8C4w8HJHKZA1AgJr35haIPv+afdw0fslwMN1fWg8MlVA2SaHJhkBCUhAAhKQgAQk4H8PNPUA/f/P6OKPzbDiMl6g4wPY5hqL+ABW01xbBean6nmSayne98P7BapvTpdBbHQIAAAAAElFTkSuQmCC');
+    height: 146px;
+    margin: 0 auto;
+    width: 160px
+}
+
+.orientation-alert-main {
+    width: 100%;
+    top: 35%;
+    position: absolute
+}
+
+.orientation-alert-main a {
+    display: block;
+    margin-top: 32px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #fff
+}
+
+.hide {
+    display: none!important
+}
+
+.gv_rotate-close span {
+    cursor: pointer;
+    color: #ff0
+}
